@@ -1,0 +1,9 @@
+<div class="container">
+  <div *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div class="card-container">
+    <app-contact-card *ngFor="let contact of contacts" [contact]="contact"></app-contact-card>
+  </div>
+</div>
+
