@@ -3,11 +3,11 @@ import {ContactService} from "../../services/contact/contact.service";
 import {ContactDto} from "../../dtos/ContactDto";
 
 @Component({
-  selector: 'app-view-contacts',
-  templateUrl: './view-contacts.component.html',
-  styleUrls: ['./view-contacts.component.sass']
+  selector: 'app-contact-list-view',
+  templateUrl: './contact-list-view.component.html',
+  styleUrls: ['./contact-list-view.component.sass']
 })
-export class ViewContactsComponent implements OnInit {
+export class ContactListViewComponent implements OnInit {
 
   contacts: Array<ContactDto>;
   isLoading: boolean;
