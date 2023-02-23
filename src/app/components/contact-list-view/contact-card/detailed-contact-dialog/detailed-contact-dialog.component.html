@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header mat-dialog-title>
+    <mat-card-title><b>Name: </b> {{contact.name}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content mat-dialog-content>
+    <div><b>Phone: </b> {{contact.phone}}</div>
+    <div><b>Address: </b> {{contact.address | address}}</div>
+    <div><b>User name: </b> {{contact.username}}</div>
+    <div><b>Email: </b> {{contact.email}}</div>
+    <div><b>Website: </b> {{contact.website}}</div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button mat-dialog-close color="primary">Close</button>
+  </mat-card-actions>
+</mat-card>

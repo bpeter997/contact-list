@@ -13,13 +13,19 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { ContactCardComponent } from './components/contact-list-view/contact-card/contact-card.component';
 import {MatCardModule} from "@angular/material/card";
 import { AddressPipe } from './pipes/address/address.pipe';
+import {MatDividerModule} from "@angular/material/divider";
+import {
+  DetailedContactDialogComponent
+} from "./components/contact-list-view/contact-card/detailed-contact-dialog/detailed-contact-dialog.component";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactListViewComponent,
     ContactCardComponent,
-    AddressPipe
+    AddressPipe,
+    DetailedContactDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,9 @@ import { AddressPipe } from './pipes/address/address.pipe';
     MatIconModule,
     MatButtonToggleModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
