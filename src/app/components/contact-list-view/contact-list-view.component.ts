@@ -36,10 +36,6 @@ export class ContactListViewComponent implements OnInit {
   }
 
   filterContacts() {
-    if (!this.searchText) {
-      this.filteredContacts = this.contacts;
-      return;
-    }
     this.filteredContacts = this.contacts.filter(this.filterByName());
   }
 
