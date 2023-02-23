@@ -10,17 +10,22 @@ import {ContactDto} from "../../dtos/ContactDto";
 export class ContactListViewComponent implements OnInit {
 
   contacts: Array<ContactDto>;
+  filteredContacts: Array<ContactDto>;
   isLoading: boolean;
+  searchText: string;
 
   constructor(private contactService: ContactService) {
     this.contacts = [];
+    this.filteredContacts = [];
     this.isLoading = true;
+    this.searchText = '';
   }
 
   ngOnInit() {
     this.contactService.getContact().subscribe({
       next: (data: Array<ContactDto>) => {
         this.contacts = data;
+        this.filteredContacts = data;
         this.isLoading = false;
       },
       error: error => {
@@ -28,5 +33,17 @@ export class ContactListViewComponent implements OnInit {
         this.isLoading = false;
       },
     })
+  }
+
+  filterContacts() {
+    if (!this.searchText) {
+      this.filteredContacts = this.contacts;
+      return;
+    }
+    this.filteredContacts = this.contacts.filter(this.filterByName());
+  }
+
+  private filterByName() {
+    return (contact: Partial<ContactDto>) => contact.name!.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
   }
 }

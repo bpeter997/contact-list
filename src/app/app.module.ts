@@ -18,6 +18,8 @@ import {
   DetailedContactDialogComponent
 } from "./components/contact-list-view/contact-card/detailed-contact-dialog/detailed-contact-dialog.component";
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatProgressSpinnerModule,
     MatCardModule,
     MatDividerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
