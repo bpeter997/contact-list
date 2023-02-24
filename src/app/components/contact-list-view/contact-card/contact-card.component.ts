@@ -10,7 +10,7 @@ import {
   templateUrl: './contact-card.component.html',
   styleUrls: ['./contact-card.component.sass'],
 })
-export class ContactCardComponent implements OnInit {
+export class ContactCardComponent {
   constructor(public dialog: MatDialog) {
   }
 
@@ -18,8 +18,6 @@ export class ContactCardComponent implements OnInit {
   @Input() isNew: boolean = false;
   @Output() remove: EventEmitter<number> = new EventEmitter<number>();
 
-  ngOnInit(): void {
-  }
 
   openDialog() {
     this.dialog.open(DetailedContactDialogComponent, { data: this.contact });

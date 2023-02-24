@@ -17,8 +17,8 @@ export class ContactListViewComponent implements OnInit, OnDestroy {
 
   apiError: boolean;
 
-  newContactSubscription: Subscription | undefined;
-  contactSubscription: Subscription | undefined;
+  private newContactSubscription: Subscription | undefined;
+  private contactSubscription: Subscription | undefined;
 
   constructor(private contactService: ContactService) {
     this.contacts = [];
