@@ -1,3 +1,3 @@
 export const environment = {
-  contactUrl: 'https://jsonplaceholder.typicode.com/users'
+  contactUrl: 'https://jsonplaceholder.typicode.com/users',
 };

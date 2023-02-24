@@ -1,4 +1,4 @@
 export interface GeoDto {
-  lat: string,
-  lng: string
+  lat: string;
+  lng: string;
 }

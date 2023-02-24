@@ -1,17 +1,23 @@
 <mat-card class="contact-card">
   <mat-card-header>
-    <mat-card-title><b>Name: </b> {{contact.name}}
-      <button *ngIf="isNew" mat-icon-button color="primary" (click)="removeCard()">
+    <mat-card-title
+      ><b>Name: </b> {{ contact.name }}
+      <button
+        *ngIf="isNew"
+        mat-icon-button
+        color="primary"
+        (click)="removeCard()">
         <mat-icon>delete_icon</mat-icon>
       </button>
     </mat-card-title>
-
   </mat-card-header>
   <mat-card-content class="content">
-    <div><b>Phone: </b> {{contact.phone}}</div>
-    <div><b>Address: </b> {{contact.address | address}}</div>
+    <div><b>Phone: </b> {{ contact.phone }}</div>
+    <div><b>Address: </b> {{ contact.address | address }}</div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="openDialog()">More</button>
+    <button mat-raised-button color="primary" (click)="openDialog()">
+      More
+    </button>
   </mat-card-actions>
 </mat-card>
