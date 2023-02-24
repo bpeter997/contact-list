@@ -1,38 +1,28 @@
-<div class="container">
-  <div *ngIf="isLoading">
+<div class='container'>
+  <div *ngIf='isLoading'>
     <mat-spinner></mat-spinner>
   </div>
-  <div class="search-container">
-    <form>
-      <mat-form-field>
-        <span matPrefix> </span>
-        <input
-          type="text"
-          matInput
-          placeholder="Search"
-          name="search"
-          [(ngModel)]="searchText"
-          (keyup.enter)="filterContacts()" />
-        <button matSuffix mat-button (click)="filterContacts()">
-          <mat-icon>search</mat-icon>
-        </button>
-      </mat-form-field>
-    </form>
-  </div>
-  <div class="card-container">
+  <app-contact-search
+    [contacts]='this.contacts'
+    [newContacts]='this.newContacts'
+    (searchEvent)='this.filterContacts($event)'>
+  </app-contact-search>
+  <div class='card-container'>
     <app-contact-card
-      *ngFor="let contact of filteredContacts"
-      [contact]="contact"></app-contact-card>
+      *ngFor='let contact of filteredContacts'
+      [contact]='contact'>
+    </app-contact-card>
   </div>
-  <div *ngIf="newFilteredContacts.length > 0">
+  <h1 *ngIf='apiError'>Api is currently not available. Please try again later!</h1>
+  <div *ngIf='newFilteredContacts.length > 0'>
     New Contacts
     <mat-divider></mat-divider>
   </div>
-  <div class="card-container">
+  <div class='card-container'>
     <app-contact-card
-      [isNew]="true"
-      *ngFor="let contact of newFilteredContacts"
-      [contact]="contact"
-      (remove)="removeCard($event)"></app-contact-card>
+      [isNew]='true'
+      *ngFor='let contact of newFilteredContacts'
+      [contact]='contact'
+      (remove)='removeCard($event)'></app-contact-card>
   </div>
 </div>

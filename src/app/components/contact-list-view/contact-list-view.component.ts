@@ -14,9 +14,11 @@ export class ContactListViewComponent implements OnInit, OnDestroy {
   newContacts: Array<Partial<ContactDto>>;
   newFilteredContacts: Array<Partial<ContactDto>>;
   isLoading: boolean;
-  searchText: string;
+
+  apiError: boolean;
 
   newContactSubscription: Subscription | undefined;
+  contactSubscription: Subscription | undefined;
 
   constructor(private contactService: ContactService) {
     this.contacts = [];
@@ -24,11 +26,11 @@ export class ContactListViewComponent implements OnInit, OnDestroy {
     this.newContacts = [];
     this.newFilteredContacts = [];
     this.isLoading = true;
-    this.searchText = '';
+    this.apiError = false;
   }
 
   ngOnInit() {
-    this.contactService.getContact().subscribe({
+    this.contactSubscription = this.contactService.getContact().subscribe({
       next: (data: Array<ContactDto>) => {
         this.contacts = data;
         this.filteredContacts = data;
@@ -37,34 +39,36 @@ export class ContactListViewComponent implements OnInit, OnDestroy {
       error: error => {
         console.log(error);
         this.isLoading = false;
+        this.apiError = true;
       },
     });
 
     this.newContactSubscription = this.contactService
-      .getNewContacts()
-      .subscribe({
-        next: (data: Array<Partial<ContactDto>>) => {
-          this.newContacts = data;
-          this.newFilteredContacts = data;
-        },
-        error: error => {
-          console.log(error);
-        },
-      });
+    .getNewContacts()
+    .subscribe({
+      next: (data: Array<Partial<ContactDto>>) => {
+        this.newContacts = data;
+        this.newFilteredContacts = data;
+      },
+      error: error => {
+        console.log(error);
+      },
+    });
   }
 
   ngOnDestroy(): void {
     this.newContactSubscription!.unsubscribe();
+    this.contactSubscription!.unsubscribe();
   }
 
-  filterContacts() {
-    this.filteredContacts = this.contacts.filter(this.filterByName());
-    this.newFilteredContacts = this.newContacts.filter(this.filterByName());
+  filterContacts(searchText: string) {
+    this.filteredContacts = this.contacts.filter(this.filterByName(searchText));
+    this.newFilteredContacts = this.newContacts.filter(this.filterByName(searchText));
   }
 
-  private filterByName() {
+  private filterByName(searchText: string) {
     return (contact: Partial<ContactDto>) =>
-      contact.name!.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
+      contact.name!.toLowerCase().indexOf(searchText.toLowerCase()) != -1;
   }
 
   removeCard(id: number) {

@@ -19,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddContactViewComponent } from './components/add-contact-view/add-contact-view.component';
+import { ContactSearchComponent } from './components/contact-list-view/contact-search/contact-search.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AddContactViewComponent } from './components/add-contact-view/add-conta
     AddressPipe,
     DetailedContactDialogComponent,
     AddContactViewComponent,
+    ContactSearchComponent,
   ],
   imports: [
     BrowserModule,

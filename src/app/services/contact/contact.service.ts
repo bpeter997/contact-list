@@ -28,6 +28,7 @@ export class ContactService {
     const index: number = this.newContracts.findIndex(
       contract => contract.id === id
     );
+    console.log(index);
     this.newContracts.splice(index, 1);
   }
 }
