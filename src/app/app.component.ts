@@ -7,9 +7,5 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'contact-list';
-  listContactIsActive = true;
 
-  changeListActive() {
-    this.listContactIsActive = !this.listContactIsActive
-  }
 }

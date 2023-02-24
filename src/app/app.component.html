@@ -3,10 +3,8 @@
     <span>Contact list</span>
     <span class="menu-spacer"></span>
     <div>
-      <a mat-button [disabled]="!this.listContactIsActive" (click)="changeListActive()"
-         [routerLink]="'/accounts'"> Add contact </a>
-      <a mat-button [disabled]="this.listContactIsActive" (click)="changeListActive()"
-         [routerLink]="'/view-contacts'"> View Contact </a>
+      <a mat-button [routerLink]="'/add-contact'"> Add contact </a>
+      <a mat-button [routerLink]="'/view-contacts'"> View Contact </a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

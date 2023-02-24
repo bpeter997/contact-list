@@ -1,5 +1,5 @@
 import {Component, Inject} from '@angular/core';
-import {ContactDto} from "../../../../dtos/ContactDto";
+import {ContactDto} from "../../dtos/ContactDto";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 @Component({

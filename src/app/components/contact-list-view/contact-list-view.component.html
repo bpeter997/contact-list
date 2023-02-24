@@ -3,10 +3,10 @@
     <mat-spinner></mat-spinner>
   </div>
   <div class="search-container">
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
+    <form>
+      <mat-form-field>
         <span matPrefix> </span>
-        <input type="tel" matInput placeholder="Search" name="search" [(ngModel)]="searchText"
+        <input type="text" matInput placeholder="Search" name="search" [(ngModel)]="searchText"
                (keyup.enter)="filterContacts()">
         <button matSuffix mat-button (click)="filterContacts()">
           <mat-icon>search</mat-icon>

@@ -3,7 +3,7 @@ import {ContactDto} from "../../../dtos/ContactDto";
 import {MatDialog} from "@angular/material/dialog";
 import {
   DetailedContactDialogComponent
-} from "./detailed-contact-dialog/detailed-contact-dialog.component";
+} from "../../../dialogs/detailed-contact-dialog/detailed-contact-dialog.component";
 
 @Component({
   selector: 'app-contact-card',

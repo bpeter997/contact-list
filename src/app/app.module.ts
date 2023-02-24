@@ -16,10 +16,11 @@ import { AddressPipe } from './pipes/address/address.pipe';
 import {MatDividerModule} from "@angular/material/divider";
 import {
   DetailedContactDialogComponent
-} from "./components/contact-list-view/contact-card/detailed-contact-dialog/detailed-contact-dialog.component";
+} from "./dialogs/detailed-contact-dialog/detailed-contact-dialog.component";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { AddContactViewComponent } from './components/add-contact-view/add-contact-view.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {FormsModule} from "@angular/forms";
     ContactListViewComponent,
     ContactCardComponent,
     AddressPipe,
-    DetailedContactDialogComponent
+    DetailedContactDialogComponent,
+    AddContactViewComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import {FormsModule} from "@angular/forms";
     MatDividerModule,
     MatDialogModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
