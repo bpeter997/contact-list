@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ContactDto} from "../../../dtos/ContactDto";
 import {MatDialog} from "@angular/material/dialog";
 import {
@@ -17,6 +17,8 @@ export class ContactCardComponent implements OnInit {
   }
 
   @Input() contact: Partial<ContactDto> = {};
+  @Input() isNew: boolean = false;
+  @Output() remove: EventEmitter<number> = new EventEmitter<number>();
 
   ngOnInit(): void {
   }
@@ -24,5 +26,9 @@ export class ContactCardComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(DetailedContactDialogComponent, {data: this.contact});
+  }
+
+  removeCard() {
+    this.remove.emit(this.contact.id!);
   }
 }
